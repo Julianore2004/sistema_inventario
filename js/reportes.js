@@ -20,8 +20,10 @@ function load(page) {
 function exportar_excel() {
     let categoria = $("#id_categoria").val();
     if (categoria) {
+        // Si hay una categoría seleccionada, agrega el parámetro a la URL
         window.location = "reporte_stock.php?id_categoria=" + categoria;
     } else {
-        alert("Por favor, selecciona una categoría.");
+        // Si no hay categoría seleccionada, genera el reporte general
+        window.location = "reporte_stock.php";
     }
 }

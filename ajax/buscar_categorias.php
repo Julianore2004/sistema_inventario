@@ -85,7 +85,7 @@
 			  <table class="table">
 				<tr  class="success">
 					<th>Nombre</th>
-					<th>Descripción</th>
+					<th>Descripcion</th>
 					<th>Agregado</th>
 					<th class='text-right'>Acciones</th>
 					

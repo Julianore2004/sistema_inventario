@@ -71,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `date_added` datetime NOT NULL,
   `precio_producto` double NOT NULL,
   `stock` int(11) NOT NULL,
+  `imagen` varchar(500) NOT NULL,
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

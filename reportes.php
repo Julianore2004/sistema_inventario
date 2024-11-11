@@ -8,8 +8,8 @@ if (!isset($_SESSION['user_login_status']) || $_SESSION['user_login_status'] != 
 require_once("config/db.php");
 require_once("config/conexion.php");
 
-$active_categoria = "active";
-$title = "Categorías | Simple Invoice";
+$active_reportes = "active";
+$title = "Reportes | Simple Invoice";
 ?>
 
 <!DOCTYPE html>
@@ -47,9 +47,7 @@ $title = "Categorías | Simple Invoice";
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-default" onclick="load(1);">
-                                <span class="glyphicon glyphicon-search"></span> Buscar
-                            </button>
+                          
                             <span id="loader"></span>
                         </div>
                     </div>

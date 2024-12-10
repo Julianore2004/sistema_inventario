@@ -44,7 +44,7 @@ if (empty($_POST['codigo'])) {
         $user_id = $_SESSION['user_id'];
         $firstname = $_SESSION['firstname'];
         $nota = "$firstname agregó $stock producto(s) al inventario";
-        echo guardar_historial($id_producto, $user_id, $date_added, $nota, $codigo, $stock);
+        
     } else {
         $errors[] = "Lo siento, algo ha salido mal. Intenta nuevamente." . mysqli_error($con);
     }
@@ -53,6 +53,8 @@ if (empty($_POST['codigo'])) {
 }
 
 if (isset($errors)) {
+
+    
     ?>
     <div class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -79,4 +81,5 @@ if (isset($messages)) {
     </div>
     <?php
 }
+
 ?>

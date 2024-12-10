@@ -47,14 +47,14 @@ if (isset($con)) {
                         <div class="form-group">
                             <label for="precio" class="col-sm-3 control-label">Precio</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="precio" name="precio" placeholder="Precio de venta del producto" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                <input type="number" min="0" class="form-control" id="precio" name="precio" placeholder="Precio de venta del producto" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="stock" class="col-sm-3 control-label">Stock</label>
                             <div class="col-sm-8">
-                                <input type="number" min="0" class="form-control" id="stock" name="stock" placeholder="Inventario inicial" required maxlength="8">
+                                <input type="number" min="0" class="form-control" id="stock" name="stock" placeholder="Inventario inicial" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
                             </div>
                         </div>
                         <div class="form-group">

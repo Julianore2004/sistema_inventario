@@ -76,28 +76,6 @@ if (isset($con)) {
 <?php
 }
 ?>
-<!-- <script>
-    // Reinicia el formulario después de un envío exitoso
-    document.getElementById('guardar_producto').addEventListener('submit', function (e) {
-        e.preventDefault(); // Evitar el envío normal
-        var formData = new FormData(this);
-        
-        // Enviar el formulario vía AJAX
-        fetch('ajax_guardar_producto.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(result => {
-            document.getElementById('resultados_ajax_productos').innerHTML = result;
-            
-            // Reiniciar formulario y cerrar modal
-            this.reset();
-            $('#nuevoProducto').modal('hide');
-        })
-        .catch(error => console.error('Error:', error));
-    });
-</script> -->
 <script>
     // Escuchar el envío del formulario
     document.getElementById('guardar_producto').addEventListener('submit', function(e) {

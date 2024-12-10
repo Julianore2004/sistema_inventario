@@ -35,3 +35,18 @@
   </div>
 </div> 
  </form>
+ <script>
+    document.getElementById('quantity').addEventListener('input', function (e) {
+        // Eliminar cualquier signo negativo
+        if (this.value < 0) {
+            this.value = Math.abs(this.value);
+        }
+    });
+
+    document.getElementById('quantity').addEventListener('keydown', function (e) {
+        // Prevenir la entrada de signos negativos
+        if (e.key === '-'||e.key === '+'||e.key === 'e'||e.key === 'E') {
+            e.preventDefault();
+        }
+    });
+</script>

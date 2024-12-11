@@ -1,49 +1,62 @@
-	<?php
-		if (isset($con))
-		{
-	?>
-	<!-- Modal -->
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog" role="document">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-edit'></i> Editar categoría</h4>
-		  </div>
-		  <div class="modal-body">
-			<form class="form-horizontal" method="post" id="editar_categoria" name="editar_categoria">
-			<div id="resultados_ajax2"></div>
-			  <div class="form-group">
-				<label for="mod_nombre" class="col-sm-3 control-label">Nombre</label>
-				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="mod_nombre" name="mod_nombre"  required>
-					<input type="hidden" name="mod_id" id="mod_id">
-				</div>
-			  </div>
-			   
-			  
-			 
-			  <div class="form-group">
-				<label for="mod_descripcion" class="col-sm-3 control-label">Descripción</label>
-				<div class="col-sm-8">
-				  <textarea class="form-control" id="mod_descripcion" name="mod_descripcion" ></textarea>
-				</div>
-			  </div>
-			  
-			 
-			 
-			 
-			 
-			
-		  </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-			<button type="submit" class="btn btn-primary" id="actualizar_datos">Actualizar datos</button>
-		  </div>
-		  </form>
-		</div>
-	  </div>
-	</div>
-	<?php
-		}
-	?>
+<?php
+if (isset($con)) {
+    ?>
+    <!-- Modal -->
+    <div class="modal fade" id="nuevoCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-edit'></i> Agregar nueva categoría</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="result_message"></div> <!-- Contenedor para mensajes -->
+                    <form class="form-horizontal" method="post" id="guardar_categoria" name="guardar_categoria">
+                        <div class="form-group">
+                            <label for="nombre" class="col-sm-3 control-label">Nombre</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion" class="col-sm-3 control-label">Descripción</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="descripcion" name="descripcion" maxlength="255"></textarea>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="guardar_datos">Guardar datos</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
+<script>
+    // Escuchar el envío del formulario
+    document.getElementById('guardar_categoria').addEventListener('submit', function (e) {
+        e.preventDefault(); // Evita el comportamiento predeterminado de envío
+
+        var formData = new FormData(this);
+
+        // Enviar los datos por AJAX
+        fetch('', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(result => {
+            // Vaciar el formulario sin cerrar el modal
+            document.getElementById('guardar_categoria').reset();
+
+            // Mostrar mensajes de éxito o error
+            document.getElementById('result_message').innerHTML = result;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+
